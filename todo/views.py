@@ -13,7 +13,7 @@ def task_create(request):
         description = request.POST.get('description','').strip()
         if title:
             Task.objects.create(title=title, description=description)
-            return redirect(reverse('todo:task_list'))
+            return redirect(reverse('todo:task_list')) # it redirects to the todo:task_list page
         error = 'title cannot be empty'
         return render (request,'todo/task_form.html',{'error':error})
     return render(request,'todo/task_form.html')
